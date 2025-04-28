@@ -8,8 +8,8 @@ package minirpg.enemigos.Jefes;
 public class SenorDeLosMuertos extends Jefe {
 
     public SenorDeLosMuertos() {
-        super("Señor de los Muertos",1000,50,0.05,20,40);
-        this.setVida(1000);
+        super("Señor de los Muertos",500,50,0.05,20,40);
+        this.setVida(500);
         this.setAtaque(50);
     }
 

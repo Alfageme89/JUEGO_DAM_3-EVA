@@ -141,13 +141,13 @@ public class Main {
     }
 
     private void combate(Jugador jugador, Enemigo enemigo) {
-        System.out.println("\n¡Un " + enemigo.getNombre() + " ha aparecido!");
+        System.out.println("\u001B[31m\n"+"¡Un " + enemigo.getNombre() + " ha aparecido!\u001B[37m");
 
         boolean defendiendo = false; // para saber si el jugador defendió en el turno anterior
 
         while (jugador.getVida() > 0 && enemigo.getVida() > 0) {
-            System.out.println("\nTus HP: " + jugador.getVida() + "/" + jugador.getVidaMaxima() + " | HP del enemigo: "
-                    + enemigo.getVida());
+            System.out.println("\u001B[34m\nTus HP: " + jugador.getVida() + "/" + jugador.getVidaMaxima() + " | HP del enemigo: "
+                    + enemigo.getVida()+"\u001B[37m");
             System.out.println("1. Atacar");
             System.out.println("2. Defender");
             System.out.println("3. Usar habilidad");
@@ -183,13 +183,13 @@ public class Main {
                     defendiendo = false; // se resetea la defensa para el siguiente turno
                 } else {
                     jugador.recibirDanio(enemigo.getAtaque());
-                    System.out.println("¡El enemigo te ataca!");
+                    System.out.println("\u001B[31m¡El enemigo te ataca!\u001B[37m");
                 }
             }
         }
         if (enemigo.getVida() <= 0) {
             if (enemigo instanceof SenorDeLosMuertos || enemigo instanceof Armadura) { // Jefes especiales
-                System.out.println("\nEl enemigo se arrodilla si sucumbe a sus heridas.\nTe sientes reconfortado tras semejante batalla.\nHaber salido de esta te da fuerzas para continuar.");
+                System.out.println("\nEl enemigo se arrodilla y sucumbe a sus heridas.\nTe sientes reconfortado tras semejante batalla.\nHaber salido de esta te da fuerzas para continuar.");
                 subirNivelGeneral(jugador);
 
             }
@@ -226,7 +226,7 @@ public class Main {
         jugador.setManaMaximo(jugador.getManaMaximo() + 5); // También sube el maná máximo
         jugador.setMana(jugador.getManaMaximo()); // Y se rellena el maná
 
-        System.out.println("\n¡Has subido de nivel!");
+        System.out.println("\u001B[33m\n¡Has subido de nivel!\u001B[37m");
         System.out.println("Nivel actual: " + jugador.getNivel());
         System.out.println("Tus estadísticas han mejorado:");
         System.out.println("- Ataque: " + jugador.getAtaque());
@@ -236,12 +236,12 @@ public class Main {
     }
 
     private void descanso(Jugador jugador, int ronda) {
-        System.out.println("\n-- Descansas tras el combate --");
+        System.out.println("\u001B[32m\n-- Descansas tras el combate --");
         System.out.println("enfrentamientos completados: " + ronda);
         System.out.println("1. Subir de nivel");
         System.out.println("2. Curarse");
         System.out.println("3. Meditar");
-        System.out.print("Elige tu acción: ");
+        System.out.print("Elige tu acción: \u001B[37m");
         String accion = sc.nextLine();
 
         switch (accion) {
@@ -255,7 +255,7 @@ public class Main {
                 meditar(jugador);
                 break;
             default:
-                System.out.println("Acción no válida.");
+                System.out.println("\\u001B[31mAcción no válida.\\u001B[37m");
         }
     }
 

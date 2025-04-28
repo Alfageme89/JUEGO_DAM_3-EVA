@@ -1,6 +1,7 @@
 package minirpg.personajes;
 
 import minirpg.Jugador;
+import minirpg.habilidades.DisparoMagico;
 import minirpg.habilidades.Escapar;
 import minirpg.habilidades.Habilidad;
 import minirpg.habilidades.HabilidadFuego;
@@ -19,6 +20,7 @@ public class Hechicero extends Jugador {
         // Definimos las habilidades para el Hechicero
         agregarHabilidad(new HabilidadFuego()); // Agregar habilidad de fuego
         agregarHabilidad(new ImplosionConcentrada());
+        agregarHabilidad(new DisparoMagico());
         agregarHabilidad(new Escapar());
         // Agregar otras habilidades aquí si es necesario
     }
