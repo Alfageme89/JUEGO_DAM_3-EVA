@@ -8,9 +8,9 @@ import minirpg.Enemigo;
 public class Saqueador extends Enemigo {
 
     public Saqueador() {
-        super("Saqueador",70,20,0.1,9,9);
+        super("Saqueador",70,28,0.1,9,9);
         this.setVida(70);
-        this.setAtaque(20);
+        this.setAtaque(28);
     }
 
 }

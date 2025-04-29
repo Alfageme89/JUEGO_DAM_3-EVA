@@ -10,7 +10,7 @@ import minirpg.habilidades.ImplosionConcentrada;
 public class Hechicero extends Jugador {
     public Hechicero(String nombre) {
         super(nombre, "Hechicero");
-        setAtaque(2);
+        setAtaque(6);
         definirHabilidades();  // Definir las habilidades del Hechicero
         
     }

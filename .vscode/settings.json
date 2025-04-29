@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "Pablo_Alfageme_Juego_DAM\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "Pablo_Alfageme_Juego_DAM\\lib\\mysql-connector-j-9.2.0.jar"
+    ]
+}

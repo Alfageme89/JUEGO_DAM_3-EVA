@@ -12,8 +12,8 @@ public class Espadachin extends Jugador {
         setAgilidad(15);
         setAtaque(12);
         definirHabilidades(); // Definir las habilidades
-        setVidaMaxima(110);
-        setVida(110);
+        setVidaMaxima(120);
+        setVida(120);
     }
 
     @Override

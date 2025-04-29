@@ -10,7 +10,7 @@ public class RataGigante extends Enemigo {
     public RataGigante() {
         super("Rata gigante",25,10,0.4,1,9);
         this.setVida(25);
-        this.setAtaque(10);
+        this.setAtaque(20);
     }
 
 }

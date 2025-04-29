@@ -23,7 +23,7 @@ public abstract class Jugador {
         this.vida = 100;  // Vida base inicial
         this.vidaMaxima = 100; // Vida máxima por defecto
         this.ataque = 20;
-        this.defensa = 10;
+        this.defensa = 5;
         this.mana = 100;
         this.manaMaximo = 100; // Inicial igual que mana
         this.agilidad = 10;
@@ -33,17 +33,36 @@ public abstract class Jugador {
 
     public abstract void definirHabilidades();
 
+    /**
+     * Recibe da o del enemigo y aplica defensa.
+     * 
+     * @param cantidad  Cantidad base de da o recibido.
+     */
     public void recibirDanio(int cantidad) {
         int danioRecibido = cantidad - this.defensa;
         this.vida -= Math.max(danioRecibido, 0);
     }
 
+    /**
+     * Muestra las habilidades del jugador en la consola y permite
+     * seleccionar una para usar.
+     */
     public void mostrarHabilidades() {
         System.out.println("Selecciona una habilidad:");
         for (int i = 0; i < habilidades.size(); i++) {
             System.out.println((i + 1) + ". " + habilidades.get(i).getNombre() + " - " + habilidades.get(i).getDescripcion());
         }
     }
+
+    /**
+     * Utiliza una habilidad seleccionada del jugador contra un enemigo, 
+     * descontando el costo de mana correspondiente si es posible.
+     * 
+     * @param seleccion  El índice de la habilidad a usar, comenzando desde 1.
+     * @param enemigo    El enemigo objetivo sobre el cual se ejecutará la habilidad.
+     * 
+     * Imprime un mensaje si el jugador no tiene suficiente mana o si la selección es inválida.
+     */
 
     public void usarHabilidad(int seleccion, Enemigo enemigo) {
         if (seleccion > 0 && seleccion <= habilidades.size()) {
@@ -60,6 +79,15 @@ public abstract class Jugador {
         }
     }
 
+    /**
+     * Utiliza una habilidad seleccionada del jugador contra un enemigo,
+     * descontando el costo de mana correspondiente si es posible.
+     * 
+     * @param seleccion  El índice de la habilidad a usar, comenzando desde 1.
+     * @param enemigo    El enemigo objetivo sobre el cual se ejecutará la habilidad.
+     * 
+     * Imprime un mensaje si el jugador no tiene suficiente mana o si la selección es inválida.
+     */
     public void usarHabilidadConMana(int seleccion, Enemigo enemigo) {
         if (seleccion > 0 && seleccion <= habilidades.size()) {
             Habilidad habilidad = habilidades.get(seleccion - 1);
@@ -75,6 +103,11 @@ public abstract class Jugador {
         }
     }
 
+    /**
+     * Añade una habilidad al inventario del jugador.
+     * 
+     * @param habilidad  La habilidad a agregar.
+     */
     public void agregarHabilidad(Habilidad habilidad) {
         habilidades.add(habilidad);
     }
@@ -93,6 +126,11 @@ public abstract class Jugador {
 
     public int getVidaMaxima() { return vidaMaxima; }
 
+    /**
+     * Obtiene la primera habilidad del inventario del jugador.
+     * Si el inventario está vacío, devuelve null.
+     * @return La primera habilidad del inventario o null si no hay habilidades.
+     */
     public Habilidad getHabilidad() {
         if (!habilidades.isEmpty()) {
             return habilidades.get(0);

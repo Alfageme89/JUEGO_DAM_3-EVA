@@ -6,9 +6,9 @@ package minirpg.enemigos.Jefes;
 public class Armadura extends Jefe {
 
     public Armadura() {
-        super("Armadura Encantada", 180, 10, 0.1, 50, 10);
+        super("Armadura Encantada", 180, 30, 0.1, 50, 10);
         this.setVida(180);
-        this.setAtaque(10); // Muy bajo ataque directo
+        this.setAtaque(30); // Muy bajo ataque directo
     }
 
     // Método personalizado de Armadura (sin @Override)

@@ -10,9 +10,9 @@ public class Asesino extends Jugador {
     public Asesino(String nombre) {
         super(nombre, "Asesino");
         setAgilidad(25);   // El Asesino es muy ágil
-        setAtaque(15);     // El Asesino tiene un ataque moderado
-        setVidaMaxima(75);  // Vida máxima personalizada para Asesino
-        setVida(75);        // Establecer vida inicial del Asesino
+        setAtaque(25);     // El Asesino tiene un ataque moderado
+        setVidaMaxima(50);  // Vida máxima personalizada para Asesino
+        setVida(50);        // Establecer vida inicial del Asesino
         definirHabilidades();
     }
 

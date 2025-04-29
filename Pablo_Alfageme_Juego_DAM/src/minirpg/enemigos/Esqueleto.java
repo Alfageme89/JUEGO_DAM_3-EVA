@@ -8,9 +8,9 @@ import minirpg.Enemigo;
 public class Esqueleto extends Enemigo {
 
     public Esqueleto() {
-        super("Esqueleto",50,10,0.1,1,9);
+        super("Esqueleto",50,20,0.1,1,9);
         this.setVida(50);
-        this.setAtaque(10);
+        this.setAtaque(20);
     }
 
 }

@@ -8,9 +8,9 @@ import minirpg.Enemigo;
 public class Ghoul extends Enemigo {
 
     public Ghoul() {
-        super("Ghoul",40,12,0.35,1,1);
+        super("Ghoul",40,18,0.35,1,1);
         this.setVida(40);
-        this.setAtaque(12);
+        this.setAtaque(18);
     }
 
     // Métodos adicionales o habilidades del Ghoul

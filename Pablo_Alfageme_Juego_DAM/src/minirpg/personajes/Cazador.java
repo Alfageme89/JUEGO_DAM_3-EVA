@@ -10,7 +10,7 @@ public class Cazador extends Jugador {
     public Cazador(String nombre) {
         super(nombre, "Cazador");
         setAgilidad(20);   // El Cazador tiene una buena agilidad
-        setAtaque(10);     // El Cazador tiene un ataque adecuado
+        setAtaque(15);     // El Cazador tiene un ataque adecuado
         definirHabilidades();
     }
 

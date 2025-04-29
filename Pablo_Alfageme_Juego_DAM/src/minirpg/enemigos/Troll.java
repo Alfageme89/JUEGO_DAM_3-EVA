@@ -8,9 +8,9 @@ import minirpg.Jugador;
 public class Troll extends Enemigo {
 
     public Troll() {
-        super("Troll",150,25,0,15,0);
+        super("Troll",150,45,0,15,0);
         this.setVida(150);
-        this.setAtaque(25);
+        this.setAtaque(45);
     }
 
     // Métodos adicionales o habilidades del Troll

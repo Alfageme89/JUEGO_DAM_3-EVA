@@ -8,9 +8,9 @@ import minirpg.Enemigo;
 public class Slime extends Enemigo {
 
     public Slime() {
-        super("Cúmulo de moco consciente(Slime)",10,1,0,90,90);
+        super("Cúmulo de moco consciente(Slime)",10,15,0,90,90);
         this.setVida(10);
-        this.setAtaque(1);
+        this.setAtaque(15);
     }
 
 }

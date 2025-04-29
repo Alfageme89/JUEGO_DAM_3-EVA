@@ -51,6 +51,9 @@ public class Lore {
 
     // Métodos que muestran el lore de cada clase
 
+    /**
+     * Muestra el lore de la clase Hechicero.
+     */
     private void mostrarLoreHechicero() {
         System.out.println("\n-------------------------");
         System.out.println("  Elige el poder arcano...");
@@ -64,6 +67,10 @@ public class Lore {
         System.out.println("\n-------------------------");
     }
     
+/**
+ * Muestra el lore de la clase Espadachín.
+ */
+
     private void mostrarLoreEspadachin() {
         System.out.println("\n-------------------------");
         System.out.println("  Elige el acero...");
@@ -76,6 +83,9 @@ public class Lore {
         System.out.println("\n-------------------------");
     }
     
+/**
+ * Muestra el lore de la clase Asesino.
+ */
     private void mostrarLoreAsesino() {
         System.out.println("\n-------------------------");
         System.out.println("  Elige la Sombra...");
@@ -88,6 +98,9 @@ public class Lore {
         System.out.println("\n-------------------------");
     }
     
+/**
+ * Muestra el lore de la clase Cazador.
+ */
     private void mostrarLoreCazador() {
         System.out.println("\n-------------------------");
         System.out.println("  Elige el arco...");
