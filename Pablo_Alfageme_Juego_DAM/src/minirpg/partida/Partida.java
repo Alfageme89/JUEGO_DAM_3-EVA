@@ -14,51 +14,33 @@ public class Partida {
     private boolean gano;
     private int puntos;
 
-    /**
-     * Crea un registro de partida.
-     * @param jugador Nombre del jugador
-     */
     public Partida(String jugador) {
         this.jugador = jugador;
         this.inicio = LocalDateTime.now();
     }
 
-    public Partida(LocalDateTime inicio, LocalDateTime fin, String personaje, String resultado, int puntos) {
+    public Partida(LocalDateTime inicio, LocalDateTime fin, String jugador, String resultado, int puntos) {
         this.inicio = inicio;
         this.fin = fin;
-        this.jugador = personaje;
+        this.jugador = jugador;
         this.gano = resultado.equalsIgnoreCase("gano");
         this.puntos = puntos;
     }
 
-    /**
-     * Marca el final de la partida y asigna resultado.
-     * @param gano true si ganó, false si perdió
-     * @param puntos puntos obtenidos
-     */
-    public void finalizar(boolean gano, int puntos) {
-        this.fin = LocalDateTime.now();
-        this.gano = gano;
-        this.puntos = puntos;
-    }
+   public void finalizar(int puntos) {
+    this.fin = LocalDateTime.now();
+    this.puntos = puntos;
+    this.gano = puntos > 100;
+}
+
 
     public String getFecha() {
         return inicio.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
-    
-    public LocalDateTime convertirFecha(String fecha) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); 
-        return LocalDateTime.parse(fecha, formatter);
-    }
 
     public String getDuracion() {
-        Duration d = Duration.between(inicio, fin);
-        long h = d.toHours();
-        long m = d.toMinutesPart();
-        long s = d.toSecondsPart();
-        return String.format("%02d:%02d:%02d", h, m, s);
-    }
-    public String calcularFechaFin() {
+        if (fin == null)
+            return "En curso";
         Duration d = Duration.between(inicio, fin);
         long h = d.toHours();
         long m = d.toMinutesPart();
@@ -66,7 +48,6 @@ public class Partida {
         return String.format("%02d:%02d:%02d", h, m, s);
     }
 
-    // Getters para campos privados
     public String getJugador() {
         return jugador;
     }
@@ -79,8 +60,38 @@ public class Partida {
         return puntos;
     }
 
+    public LocalDateTime getFin() {
+        return fin;
+    }
+
     @Override
     public String toString() {
-        return String.join(",", getFecha(), getDuracion(), jugador, (gano?"GANO":"PERDIO"), String.valueOf(puntos));
+        return String.join(",", getFecha(), getDuracion(), jugador, (gano ? "GANO" : "PERDIO"), String.valueOf(puntos));
     }
+
+    public static Partida fromString(String data) {
+        String[] partes = data.split(",");
+        if (partes.length != 5) {
+            throw new IllegalArgumentException("Formato inválido de partida: " + data);
+        }
+    
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime inicio = LocalDateTime.parse(partes[0], formatter);
+    
+        // Parsear duración
+        String[] durParts = partes[1].split(":");
+        int horas = Integer.parseInt(durParts[0]);
+        int minutos = Integer.parseInt(durParts[1]);
+        int segundos = Integer.parseInt(durParts[2]);
+        Duration duracion = Duration.ofHours(horas).plusMinutes(minutos).plusSeconds(segundos);
+        LocalDateTime fin = inicio.plus(duracion);
+    
+        String jugador = partes[2];
+        String resultado = partes[3];
+        int puntos = Integer.parseInt(partes[4]);
+    
+        return new Partida(inicio, fin, jugador, resultado, puntos);
+    }
+    
+
 }
