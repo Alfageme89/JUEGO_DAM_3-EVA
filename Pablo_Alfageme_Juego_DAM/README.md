@@ -27,3 +27,7 @@ Este proyecto también incluye funcionalidades como el registro de las partidas 
    git clone https://github.com/Alfageme89/JUEGO_DAM_3-EVA.git
    cd minirpg
    ```
+2. **Conectar con base de datos**:
+    - puerto 3300
+    - user: root
+    - password: 2234
