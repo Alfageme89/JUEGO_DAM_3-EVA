@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class PartidasDB {
 
     /**
-     * Inserta una partida en la base de datos.
+     * Inserta una o muchas partidas en la base de datos.
      * @param partida la Partida a insertar
      */
     public static void insertarPartida(Partida partida) {
